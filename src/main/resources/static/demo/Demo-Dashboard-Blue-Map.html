@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <title>Route Demo - Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://use.fontawesome.com/9eb859ba03.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Month', 'Revenue', { role: 'style' }],
+                [moment().subtract(12,'months').format('MMM'),  488, 'color: #13b675'],
+                [moment().subtract(11,'months').format('MMM'),  675, 'color: #13b675'],
+                [moment().subtract(10,'months').format('MMM'),  563, 'color: #13b675'],
+                [moment().subtract(9,'months').format('MMM'),  413, 'color: #13b675'],
+                [moment().subtract(8,'months').format('MMM'),  300, 'color: #13b675'],
+                [moment().subtract(7,'months').format('MMM'),  525, 'color: #13b675'],
+                [moment().subtract(6,'months').format('MMM'),  562, 'color: #13b675'],
+                [moment().subtract(5,'months').format('MMM'),  360, 'color: #13b675'],
+                [moment().subtract(4,'months').format('MMM'),  435, 'color: #13b675'],
+                [moment().subtract(3,'months').format('MMM'),  600, 'color: #13b675'],
+                [moment().subtract(2,'months').format('MMM'),  975, 'color: #13b675'],
+                [moment().subtract(1,'months').format('MMM'),  1275, 'color: #13b675']
+            ]);
+
+            var options = {
+                legend: {position: "none"},
+                vAxis: {minValue: 0,format: '$####'},
+//                animation: {
+//                    startup:true,
+//                    duration:1000,
+//                    easing: 'out',
+//                }
+            };
+
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script type="text/javascript">
+        google.charts.load('upcoming', {'packages':['geochart']});
+        google.charts.setOnLoadCallback(drawRegionsMap);
+
+        function drawRegionsMap() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Country', 'Shipments'],
+                ['US', 1518],
+                ['AU', 1250],
+                ['JP', 400],
+                ['FR', 300],
+                ['CA', 1000],
+                ['MX', 100],
+                ['DE', 454],
+                ['ES', 200],
+                ['GB', 454],
+                ['IT', 454],
+                ['RU', 1200],
+                ['CO', 12],
+                ['CO', 32],
+                ['BR', 981],
+                ['CN', 1354]
+        ]);
+
+            var options = {
+                colorAxis: {colors: ['#09ceff', '#2b87ff']}
+            };
+
+            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart1);
+        function drawChart1() {
+            var data1 = google.visualization.arrayToDataTable([
+                ['shipments', 'count'],
+                ['Other', 946],
+                ['Delivered', 4308]
+            ]);
+            var options1 = {
+                legend: {position: "none"},
+                pieSliceText: "none",
+                colors: ['#09ceff','#2b87ff']
+            };
+            var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
+            chart1.draw(data1, options1);
+        }
+        google.charts.setOnLoadCallback(drawChart2);
+        function drawChart2() {
+            var data2 = google.visualization.arrayToDataTable([
+                ['shipments', 'count'],
+                ['Other', 4561],
+                ['In Transit', 691]
+            ]);
+            var options2 = {
+                legend: {position: "none"},
+                pieSliceText: "none",
+                colors: ['#09ceff','#2b87ff']
+            };
+            var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+            chart2.draw(data2, options2);
+        }
+        google.charts.setOnLoadCallback(drawChart3);
+        function drawChart3() {
+            var data3 = google.visualization.arrayToDataTable([
+                ['shipments', 'count'],
+                ['other', 4999],
+                ['Ready', 255]
+            ]);
+            var options3 = {
+                legend: {position: "none"},
+                pieSliceText: "none",
+                colors: ['#09ceff','#2b87ff']
+            };
+            var chart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
+            chart3.draw(data3, options3);
+        }
+        google.charts.setOnLoadCallback(drawChart4);
+        function drawChart4() {
+            var data4 = google.visualization.arrayToDataTable([
+                ['shipments', 'count'],
+                ['other', 5254],
+                ['Exception', 0.001]
+            ]);
+            var options4 = {
+                legend: {position: "none"},
+                pieSliceText: "none",
+                colors: ['#09ceff','#2b87ff']
+            };
+            var chart4 = new google.visualization.PieChart(document.getElementById('piechart4'));
+            chart4.draw(data4, options4);
+        }
+    </script>
+</head>
+<!--<body style="background-color: black;">-->
+<body style="background-color: #f6f9fc;">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/demo/Demo-Dashboard.html"><img src="https://d1pv9ulu41r3n5.cloudfront.net/img/route-logo-clear-180px.png" height="17.5"></a>
+            <a class="navbar-brand" href="/demo/Demo-Dashboard.html">Dashboard</a>
+            <a class="navbar-brand" href="/demo/Demo-Reports.html">Reports</a>
+            <a class="navbar-brand" href="/demo/Demo-Widgets.html">Widget</a>
+            <a class="navbar-brand" href="/demo/Demo-Setup.html">Setup</a>
+        </div>
+        <div style="float: right; padding-top: 7px;">
+            <a href="/register/client"><button type="button" class="btn" style="background-color: #13b675; color: white;"><i class="fa fa-plus fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;ADD ROUTE!</button></a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid" style="margin-top:55px;">
+    <div class="visible-lg visible-xl visible-md" style="margin-left: 200px;">&nbsp;</div>
+    <div class="visible-sm visible-xs">
+        &nbsp;
+    </div>
+    <div class="visible-xs">
+        &nbsp; <br> &nbsp; <br> &nbsp;
+    </div>
+    <div class="alert alert-info text-center">
+        <strong>Demo:</strong> This site is intended for demonstration purposes. Some features are purposely disabled and all data is simulated.
+    </div>
+    <div class="row">
+        <div class="col-sm-4" style="font-size: 36px;">
+            <strong>Dashboard</strong>
+        </div>
+        <div class="col-sm-8">
+            <form action="#" method="post" name="dateRangeForm">
+                <span style="float: right; margin-top: 12px;"><input type="text" id="daterange" name="dateRangeVar" size="40" />&nbsp;&nbsp;<input type="button" value="Submit" /></span>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <!--<div class="panel panel-default" style="border-color: #4f40ff; color: #4f40ff;">-->
+    <!--<div class="panel panel-default" style="background-color: #4f40ff; color: white;">-->
+    <!--<div class="panel panel-default" style="background-color: #383f88; color: white;">-->
+    <div class="panel panel-default" style="border-color: #6772e5; background-color: #6772e5; color: white;">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                    <h2>$7171.50</h2>
+                    Revenue
+                </div>
+                <div class="col-sm-4 text-center">
+                    <h2>5254</h2>
+                    Transactions
+                </div>
+                <div class="col-sm-4 text-center">
+                    <h2>91%</h2>
+                    Uptake
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Revenue Graph -->
+    <div class="panel" style="border-color: #13b675;">
+        <!--<div class="panel-heading" style="background-color: #13b675; color: white;">Revenue <small>| $4501.31 | 2981 Transactions</small></div>-->
+        <div class="panel-heading" style="background-color: #13b675; color: white;">Revenue</div>
+        <div class="panel-body">
+            <div id="chart_div" style="width: 100%; height: 150px;"></div>
+        </div>
+    </div>
+    <!-- END Revenue Graph -->
+    <!-- Shipping Boxes -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel" style="border-color: #2b87ff;">
+                <div class="panel-heading" style="background-color: #2b87ff; color: white;">Delivered <small>| 4308 Shipments</small></div>
+                <div class="panel-body text-center"><div id="piechart1" style="height: 150px;"></div></div>
+                <div class="panel-footer text-center">Delivered</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel" style="border-color: #2b87ff;">
+                <div class="panel-heading" style="background-color: #2b87ff; color: white;">In Transit <small>| 691 Shipments</small></div>
+                <div class="panel-body text-center"><div id="piechart2" style="height: 150px;"></div></div>
+                <div class="panel-footer text-center">Out For Delivery | In Transit</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <!--<div class="panel" style="border-color: #3ecf8e;">-->
+            <div class="panel" style="border-color: #2b87ff;">
+                <div class="panel-heading" style="background-color: #2b87ff; color: white;">Ready <small>| 255 Shipments</small></div>
+                <div class="panel-body text-center"><div id="piechart3" style="height: 150px;"></div></div>
+                <div class="panel-footer text-center">primary Received | Pending</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel" style="border-color: #2b87ff;">
+                <div class="panel-heading" style="background-color: #2b87ff; color: white;">Exception <small>| 0 Shipments</small></div>
+                <div class="panel-body text-center"><div id="piechart4" style="height: 150px;"></div></div>
+                <div class="panel-footer text-center">Exception | Failed | Expired</div>
+            </div>
+        </div>
+    </div>
+    <!-- END Shipping Boxes -->
+    <!-- Map -->
+    <div class="panel" style="border-color: #2b87ff;">
+        <div class="panel-heading" style="background-color: #2b87ff; color: white;">Shipping Tracking</div>
+        <div class="panel-body">
+            <div id="regions_div" style="width: 100%; height: 500px;"></div>
+        </div>
+    </div>
+    <div>
+        &nbsp;
+    </div>
+</div>
+<nav class="navbar-xs navbar-inverse navbar-fixed-bottom">
+    <div class="text-center" style="color: grey;">Route is backed by Lloyd’s of London | DOI # 566255</div>
+</nav>
+<script type="text/javascript">
+    $('#daterange').daterangepicker({
+            "ranges": {
+                "Today": [
+                    moment().format('L'),
+                    moment().format('L')
+                ],
+                "Yesterday": [
+                    moment().subtract(1,'days').format('L'),
+                    moment().subtract(1,'days').format('L')
+                ],
+                "This Week": [
+                    moment().startOf('week').format('L'),
+                    moment().endOf('week').format('L')
+                ],
+                "Last Week": [
+                    moment().subtract(1, 'weeks').startOf('week').format('L'),
+                    moment().subtract(1, 'weeks').endOf('week').format('L')
+                ],
+                "This Month": [
+                    moment().startOf('month').format('L'),
+                    moment().endOf('month').format('L')
+                ],
+                "Last Month": [
+                    moment().subtract(1, 'months').startOf('month').format('L'),
+                    moment().subtract(1, 'months').endOf('month').format('L')
+                ]
+            },
+            "alwaysShowCalendars": true,
+            "opens": "left",
+        "startDate": moment().subtract(1,'days').format('L'),
+        "endDate": moment().subtract(1,'days').format('L')
+    });
+</script>
+
+</body>
+</html>

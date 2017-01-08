@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <title>Route Demo - Reports</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://use.fontawesome.com/9eb859ba03.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Month', 'Revenue', { role: 'style' }],
+                [moment().subtract(12,'months').format('MMM'),  325, 'color: #6772e5'],
+                [moment().subtract(11,'months').format('MMM'),  450, 'color: #6772e5'],
+                [moment().subtract(10,'months').format('MMM'),  375, 'color: #6772e5'],
+                [moment().subtract(9,'months').format('MMM'),  275, 'color: #6772e5'],
+                [moment().subtract(8,'months').format('MMM'),  200, 'color: #6772e5'],
+                [moment().subtract(7,'months').format('MMM'),  350, 'color: #6772e5'],
+                [moment().subtract(6,'months').format('MMM'),  375, 'color: #6772e5'],
+                [moment().subtract(5,'months').format('MMM'),  240, 'color: #6772e5'],
+                [moment().subtract(4,'months').format('MMM'),  290, 'color: #6772e5'],
+                [moment().subtract(3,'months').format('MMM'),  400, 'color: #6772e5'],
+                [moment().subtract(2,'months').format('MMM'),  650, 'color: #6772e5'],
+                [moment().subtract(1,'months').format('MMM'),  850, 'color: #6772e5']
+            ]);
+
+            var options = {
+                legend: {position: "none"},
+                vAxis: {minValue: 0},
+                animation: {
+                    startup:true,
+                    duration:1000,
+                    easing: 'out'
+                }
+            };
+
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+    <style>
+        a:link.color-theme, a:visited.color-theme {
+            color: #6772e5;
+            text-decoration: none;
+        }
+        a:hover.color-theme, a:active.color-theme {
+            color: black;
+        }
+    </style>
+    <style>
+        #top-menu.navbar-default .navbar-brand {
+            color: rgba(238, 238, 238, 1);
+        }
+        #top-menu.navbar-default {
+            font-size: 14px;
+            background-color: rgba(34, 34, 34, 1);
+            border-bottom-width: 0px;
+        }
+        #top-menu.navbar-default .navbar-nav>li>a {
+            color: rgba(238, 238, 238, 1);
+            background-color: rgba(34, 34, 34, 1);
+        }
+        #top-menu.navbar-default .navbar-nav>li>a:hover,
+        #top-menu.navbar-default .navbar-nav>li>a:focus {
+            color: rgba(119, 119, 119, 1);
+            background-color: rgba(34, 34, 34, 1);
+        }
+        #top-menu.navbar-default .navbar-nav>.active>a,
+        #top-menu.navbar-default .navbar-nav>.active>a:hover,
+        #top-menu.navbar-default .navbar-nav>.active>a:focus {
+            color: rgba(238, 238, 238, 1);
+            background-color: rgba(34, 34, 34, 1);
+        }
+        #top-menu.navbar-default .navbar-toggle {
+            border-color: #222222;
+        }
+        #top-menu.navbar-default .navbar-toggle:hover,
+        #top-menu.navbar-default .navbar-toggle:focus {
+            background-color: #222222;
+        }
+        #top-menu.navbar-default .navbar-toggle .icon-bar {
+            background-color: #222222;
+        }
+        #top-menu.navbar-default .navbar-toggle:hover .icon-bar,
+        #top-menu.navbar-default .navbar-toggle:focus .icon-bar {
+            background-color: #222222;
+        }
+    </style>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-84872712-1', 'auto');
+        ga('send', 'pageview');
+        ga('set', {
+            page: '/demo/reports',
+            title: 'Demo Reports'
+        });
+    </script>
+</head>
+<body style="background-color: #f6f9fc;">
+<div id="top-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/demo/Demo-Dashboard.html"><img src="https://d1pv9ulu41r3n5.cloudfront.net/img/route-logo-clear-180px.png" height="18" /></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder" style="background-color: #777777;">
+                <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a href="/register/client">
+                <button type="button" class="navbar-toggle" style="background-color: #13b675; color: white;">
+                    <i class="fa fa-plus fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;GET ROUTE!
+                </button>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/demo/Demo-Dashboard.html">Dashboard</a></li>
+                <li><a href="/demo/Demo-Reports.html">Reports</a></li>
+                <li><a href="/demo/Demo-Widgets.html">Widget</a></li>
+                <li><a href="/demo/Demo-Setup.html">Setup</a></li>
+            </ul>
+            <div class="hidden-xs" style="float: right; padding-top: 7px;">
+                <a href="/register/client"><button type="button" class="btn" style="background-color: #13b675; color: white;"><i class="fa fa-plus fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;GET ROUTE!</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="margin-top:55px;">
+    <div class="alert alert-info text-center">
+        <strong>Demo:</strong> This site is intended for demonstration purposes. <strong>Some features are purposely disabled</strong> and all data is simulated.
+    </div>
+    <div class="row">
+        <div class="col-sm-4" style="font-size: 36px;">
+            <strong>Transactions</strong>
+        </div>
+        <div class="col-sm-8">
+            <form action="#" method="post" name="dateRangeForm">
+                <span style="float: right; margin-top: 12px;"><input type="text" id="daterange" name="dateRangeVar" size="40" />&nbsp;&nbsp;<input type="button" value="Submit" /></span>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <!-- START Transaction Graph -->
+    <div class="panel" style="border-color: #6772e5;">
+        <div class="panel-heading" style="background-color: #6772e5; color: white;">Transactions <small>| 5254</small></div>
+        <div class="panel-body">
+            <div id="chart_div" style="width: 100%; height: 150px;"></div>
+        </div>
+    </div>
+    <!-- END Transaction Graph -->
+    <!-- START Transactions Data Table -->
+    <div class="panel">
+        <div class="panel-heading">
+            <input class="hidden-xs" name="searchInput" id="searchInput" type="text" placeholder="Search">
+        </div>
+        <div class="panel-body" style="overflow: auto;">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th><a href="javascript:void(0);" onclick="changeSort(1);" class="color-theme"> Order Id </a></th>
+                    <th><a href="javascript:void(0);" onclick="changeSort(1);" class="color-theme"> Date </a></th>
+                    <th><a href="javascript:void(0);" onclick="changeSort(1);" class="color-theme"> Customer </a></th>
+                    <th><a href="javascript:void(0);" onclick="changeSort(1);" class="color-theme"> Phone </a></th>
+                    <th><a href="javascript:void(0);" onclick="changeSort(1);" class="color-theme"> Email </a></th>
+                    <th><a href="javascript:void(0);" onclick="changeSort(1);" class="color-theme"> Destination </a></th>
+                    <th><a href="javascript:void(0);" onclick="changeSort(1);" class="color-theme"> Value </a></th>
+                    <th><a href="javascript:void(0);" onclick="changeSort(1);" class="color-theme"> Status </a></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr><td><a href="#" class="color-theme"> AB2899402A </a></td><td> <script>document.write(moment().subtract(1,'days').format('L')); </script> </td><td> Geraldine Thompson </td><td> 5089441461 </td><td> gt@email.com </td><td> NJ, US </td><td> 482.32 </td><td> Waiting For Tracking </td></tr>
+                    <tr><td><a href="#" class="color-theme"> D02A275C35 </a></td><td> <script>document.write(moment().subtract(1,'days').format('L')); </script> </td><td> James Franks </td><td> 5864194818 </td><td> jf@email.com </td><td> WA, US </td><td> 22.56 </td><td> Waiting For Tracking </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 4106E2260D </a></td><td> <script>document.write(moment().subtract(1,'days').format('L')); </script> </td><td> Dallen Mayer </td><td> 5126678192 </td><td> dm@email.com </td><td> NY, US </td><td> 89.91 </td><td> Waiting For Tracking </td></tr>
+                    <tr><td><a href="#" class="color-theme"> C3C3C6225E </a></td><td> <script>document.write(moment().subtract(1,'days').format('L')); </script> </td><td> Claude Byuma </td><td> 7704870877 </td><td> cb@email.com </td><td> GA, US </td><td> 44.43 </td><td> Waiting For Tracking </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 7A3325742A </a></td><td> <script>document.write(moment().subtract(1,'days').format('L')); </script> </td><td> Myra Wentz </td><td> 9783680776 </td><td> mw@email.com </td><td> VA, US </td><td> 91.96 </td><td> Insurance Not Selected </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 6C802F6CE3 </a></td><td> <script>document.write(moment().subtract(1,'days').format('L')); </script> </td><td> Diane LeRoy </td><td> 9367883478 </td><td> dl@email.com </td><td> MI, US </td><td> 48.73 </td><td> Waiting For Tracking </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 568082E95A </a></td><td> <script>document.write(moment().subtract(1,'days').format('L')); </script> </td><td> Dan Goodyear </td><td> 6125325340 </td><td> dg@email.com </td><td> IN, US </td><td> 22.49 </td><td> Waiting For Tracking </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 0628DECCF7 </a></td><td> <script>document.write(moment().subtract(1,'days').format('L')); </script> </td><td> Mac Carter </td><td> 2242686986 </td><td> mc@email.com </td><td> LA, US </td><td> 61.15 </td><td> Waiting For Tracking </td></tr>
+                    <tr><td><a href="#" class="color-theme"> D40B7A8D14 </a></td><td> <script>document.write(moment().subtract(1,'days').format('L')); </script> </td><td> Maven Martin </td><td> 2093834819 </td><td> mm@email.com </td><td> SD, US </td><td> 23.23 </td><td> Waiting For Tracking </td></tr>
+                    <tr><td><a href="#" class="color-theme"> EE95B92FF3 </a></td><td> <script>document.write(moment().subtract(1,'days').format('L')); </script> </td><td> Messa Jenkins </td><td> 5124172689 </td><td> mj@email.com </td><td> FL, US </td><td> 12.18 </td><td> Insurance Not Selected </td></tr>
+                    <tr><td><a href="#" class="color-theme"> FB0B0206D3 </a></td><td> <script>document.write(moment().subtract(1,'days').format('L')); </script> </td><td> Jennifer Decort </td><td> 4143758272 </td><td> jd@email.com </td><td> CA, US </td><td> 246.43 </td><td> Waiting For Tracking </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 658A9CD9D6 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Bryan McConner </td><td> 9196394556 </td><td> bm@email.com </td><td> NY, US </td><td> 1411.77 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> B67039C4B7 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Shannon Glenndale </td><td> 7812019604 </td><td> sg@email.com </td><td> PA, US </td><td> 90.87 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 8169CD0044 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Martin Linden </td><td> 9494950785 </td><td> ml@email.com </td><td> CA, US </td><td> 482.32 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 77D2D4EF4F </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Jackie Johnson </td><td> 3173595872 </td><td> jj@email.net </td><td> WA, US </td><td> 22.56 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> CBA769A049 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Robert Rollins </td><td> 9074190355 </td><td> rr@email.com </td><td> CA, US </td><td> 89.91 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 4C186B7C65 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Sean Cheng </td><td> 9152267058 </td><td> sc@email.com </td><td> MD, US </td><td> 44.43 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 6DB55819CA </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Alexia Bullman </td><td> 7182722713 </td><td> ab@email.com </td><td> TX, US </td><td> 91.96 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> C5AB32176A </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Ryan Schmitz </td><td> 5183100485 </td><td> rs@email.com </td><td> MI, US </td><td> 48.73 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 0E79FC5016 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Mario Andrade </td><td> 4103299539 </td><td> ma@email.com </td><td> NV, US </td><td> 22.49 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 8C66EAE1B1 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Carol Dinerstein </td><td> 6786703924 </td><td> cd@email.com </td><td> VA, US </td><td> 61.15 </td><td> Insurance Not Selected </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 13FA0AADB5 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Floyd Yorkson </td><td> 5105045065 </td><td> fy@email.com </td><td> FL, US </td><td> 23.23 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> C3A82DE5AE </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Franklin Smith </td><td> 5205601735 </td><td> fs@email.com </td><td> KS, US </td><td> 12.18 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> F2CADBB428 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Sam Williams </td><td> 5056605126 </td><td> sw@email.com </td><td> NY, US </td><td> 246.43 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 0F2C7CA073 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Sharon Marcus </td><td> 6153298772 </td><td> sm@email.com </td><td> CT, US </td><td> 1411.77 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 81695D6F69 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Tat Timko </td><td> 7326086634 </td><td> tt@email.com </td><td> MA, US </td><td> 90.87 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 2A55460CA9 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Susan LeFrate </td><td> 5099287865 </td><td> sl@email.com </td><td> MI, US </td><td> 482.32 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 756D212A4F </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Sydney Knight </td><td> 8454375376 </td><td> sk@email.com </td><td> TX, US </td><td> 22.56 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> DEE34823E7 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Mike Runyan </td><td> 2028203485 </td><td> mr@email.com </td><td> GA, US </td><td> 89.91 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 7DE9A69ABA </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Ann Henderson </td><td> 7037199577 </td><td> ah@email.com </td><td> MA, US </td><td> 44.43 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> F55ADB29A7 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> MaryAnn Rose </td><td> 5863037202 </td><td> mr@email.com </td><td> TX, US </td><td> 91.96 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> BE43AF3824 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Betty Robertson </td><td> 2193097855 </td><td> br@email.com </td><td> MN, US </td><td> 48.73 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> D6051B0C6C </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Juan Bruno </td><td> 3376024900 </td><td> jb@email.com </td><td> IL, US </td><td> 22.49 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 351B2AEA98 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Natalie Descalso </td><td> 6056261944 </td><td> nd@email.com </td><td> CA, US </td><td> 61.15 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 8C8B4B5B5A </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Ronda Lanebird </td><td> 3526338641 </td><td> rl@email.com </td><td> TX, US </td><td> 23.23 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 5A66C163CA </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Timothy Taylor </td><td> 7602087617 </td><td> tt@email.com </td><td> WI, US </td><td> 12.18 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 130ED26268 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Linda Myatt </td><td> 3233266216 </td><td> lm@email.com </td><td> NC, US </td><td> 246.43 </td><td> Insurance Not Selected </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 583F5C8FC3 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Andrew Sadler </td><td> 2679845936 </td><td> as@email.com </td><td> MA, US </td><td> 1411.77 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 649CF1057F </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Tammy Palmer </td><td> 7145780508 </td><td> tm@email.com </td><td> CA, US </td><td> 90.87 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> D329BE4061 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Gretta Anderson </td><td> 3608911166 </td><td> ga@email.com </td><td> IN, US </td><td> 482.32 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 807176BDAD </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Rachael Carlton </td><td> 4155064269 </td><td> rc@email.com </td><td> WA, US </td><td> 22.56 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 3AB6E6E21F </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Sean Thomas </td><td> 3012170367 </td><td> st@email.com </td><td> TX, US </td><td> 89.91 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 1EFF44DC7D </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Isabella Merino </td><td> 2545770096 </td><td> im@email.com </td><td> NY, US </td><td> 44.43 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> AA19FE49B6 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Donald Jenkins </td><td> 2697957897 </td><td> dj@email.com </td><td> NY, US </td><td> 91.96 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 50365A75F1 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Mandy Wadsworth </td><td> 7022723622 </td><td> mw@email.com </td><td> MD, US </td><td> 48.73 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 11F5AF59C8 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Qiu Cheng </td><td> 3862958879 </td><td> qc@email.com </td><td> GA, US </td><td> 22.49 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 8AF684135D </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Heather Granados </td><td> 7722341549 </td><td> hg@email.com </td><td> CA, US </td><td> 61.15 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 5FDA88DE60 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Marissa Chong </td><td> 3167782291 </td><td> mc@email.com </td><td> AZ, US </td><td> 23.23 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> 4D3D231D1A </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Judy Pembelton </td><td> 7169095524 </td><td> jp@email.com </td><td> ID, US </td><td> 12.18 </td><td> Insured </td></tr>
+                    <tr><td><a href="#" class="color-theme"> BBFB30A266 </a></td><td> <script>document.write(moment().subtract(2,'days').format('L')); </script> </td><td> Ashlee Collins </td><td> 8604901212 </td><td> ac@email.com </td><td> TN, US </td><td> 246.43 </td><td> Insured </td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <span class="hidden-xs">Showing <strong>1 to 50</strong> of 571 entries &nbsp;&nbsp; | &nbsp;&nbsp; </span><strong>1</strong> <a href="#" class="color-theme">2</a> <a href="#" class="color-theme">3</a> <a href="#" class="color-theme">4</a> <a href="#" class="color-theme">5</a> <a href="#" class="color-theme">6</a> <a href="#" class="color-theme">7</a>
+    </div>
+    <!-- END Transactions Data Table -->
+    <div>
+        &nbsp;
+    </div>
+</div>
+<div class="navbar-xs navbar-inverse navbar-fixed-bottom">
+    <div class="text-center" style="color: grey;">Route is backed by Lloyd’s of London | DOI # 566255</div>
+</div>
+<script type="text/javascript">
+    $('#daterange').daterangepicker({
+        "ranges": {
+            "Today": [
+                moment().format('L'),
+                moment().format('L')
+            ],
+            "Yesterday": [
+                moment().subtract(1,'days').format('L'),
+                moment().subtract(1,'days').format('L')
+            ],
+            "This Week": [
+                moment().startOf('week').format('L'),
+                moment().endOf('week').format('L')
+            ],
+            "Last Week": [
+                moment().subtract(1, 'weeks').startOf('week').format('L'),
+                moment().subtract(1, 'weeks').endOf('week').format('L')
+            ],
+            "This Month": [
+                moment().startOf('month').format('L'),
+                moment().endOf('month').format('L')
+            ],
+            "Last Month": [
+                moment().subtract(1, 'months').startOf('month').format('L'),
+                moment().subtract(1, 'months').endOf('month').format('L')
+            ]
+        },
+        "alwaysShowCalendars": true,
+        "opens": "left",
+        "startDate": moment().subtract(1,'days').format('L'),
+        "endDate": moment().subtract(1,'days').format('L')
+    });
+</script>
+
+</body>
+</html>

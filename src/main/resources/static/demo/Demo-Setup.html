@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <title>Route Demo - Setup</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://use.fontawesome.com/9eb859ba03.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        a:link.color-theme1, a:visited.color-theme1 {
+            color: #6772e5;
+            text-decoration: none;
+        }
+        a:hover.color-theme1, a:active.color-theme1 {
+            color: black;
+        }
+        a:link.color-theme2, a:visited.color-theme2 {
+            color: #2b87ff;
+            text-decoration: none;
+        }
+        a:hover.color-theme2, a:active.color-theme2 {
+            color: black;
+        }
+        .row [class*="col-"]{
+            margin-bottom: -99999px;
+            padding-bottom: 99999px;
+        }
+        .row{
+            overflow: hidden;
+        }
+        .vcenter {
+            display: inline-block;
+            vertical-align: middle;
+            float: none;
+        }
+    </style>
+    <style>
+        #top-menu.navbar-default .navbar-brand {
+            color: rgba(238, 238, 238, 1);
+        }
+        #top-menu.navbar-default {
+            font-size: 14px;
+            background-color: rgba(34, 34, 34, 1);
+            border-bottom-width: 0px;
+        }
+        #top-menu.navbar-default .navbar-nav>li>a {
+            color: rgba(238, 238, 238, 1);
+            background-color: rgba(34, 34, 34, 1);
+        }
+        #top-menu.navbar-default .navbar-nav>li>a:hover,
+        #top-menu.navbar-default .navbar-nav>li>a:focus {
+            color: rgba(119, 119, 119, 1);
+            background-color: rgba(34, 34, 34, 1);
+        }
+        #top-menu.navbar-default .navbar-nav>.active>a,
+        #top-menu.navbar-default .navbar-nav>.active>a:hover,
+        #top-menu.navbar-default .navbar-nav>.active>a:focus {
+            color: rgba(238, 238, 238, 1);
+            background-color: rgba(34, 34, 34, 1);
+        }
+        #top-menu.navbar-default .navbar-toggle {
+            border-color: #222222;
+        }
+        #top-menu.navbar-default .navbar-toggle:hover,
+        #top-menu.navbar-default .navbar-toggle:focus {
+            background-color: #222222;
+        }
+        #top-menu.navbar-default .navbar-toggle .icon-bar {
+            background-color: #222222;
+        }
+        #top-menu.navbar-default .navbar-toggle:hover .icon-bar,
+        #top-menu.navbar-default .navbar-toggle:focus .icon-bar {
+            background-color: #222222;
+        }
+    </style>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-84872712-1', 'auto');
+        ga('send', 'pageview');
+        ga('set', {
+            page: '/demo/setup',
+            title: 'Demo Setup'
+        });
+    </script>
+</head>
+<body style="background-color: #f6f9fc;">
+<div id="top-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/demo/Demo-Dashboard.html"><img src="https://d1pv9ulu41r3n5.cloudfront.net/img/route-logo-clear-180px.png" height="18" /></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder" style="background-color: #777777;">
+                <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a href="/register/client">
+                <button type="button" class="navbar-toggle" style="background-color: #13b675; color: white;">
+                    <i class="fa fa-plus fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;GET ROUTE!
+                </button>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/demo/Demo-Dashboard.html">Dashboard</a></li>
+                <li><a href="/demo/Demo-Reports.html">Reports</a></li>
+                <li><a href="/demo/Demo-Widgets.html">Widget</a></li>
+                <li><a href="/demo/Demo-Setup.html">Setup</a></li>
+            </ul>
+            <div class="hidden-xs" style="float: right; padding-top: 7px;">
+                <a href="/register/client"><button type="button" class="btn" style="background-color: #13b675; color: white;"><i class="fa fa-plus fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;GET ROUTE!</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="margin-top:55px;">
+    <div class="row">
+        <div class="col-sm-12" style="font-size: 36px;">
+            <strong>Setup</strong>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 visible-xs" style="color: #6772e5;">
+            <i class="fa fa-lg fa-pencil-square-o" aria-hidden="true"></i><strong> Step 1:</strong>
+        </div><!--
+    --><div class="col-sm-2 hidden-xs text-center vcenter" style="color: #6772e5;">
+            <i class="fa fa-5x fa-pencil-square" aria-hidden="true"></i>
+            <br>
+            <strong>Step 1</strong>
+        </div><!--
+    --><div class="col-xs-12 col-sm-10 vcenter">
+            <strong>Sign Up: </strong>Are you ready to boost customer confidence and create additional revenue? First,
+                                        you need to add Route to your checkout page and to do that, you need a Route
+                                        merchant account. Signing up is easy, we just need a name, email address, and
+                                        password. Once logged in, you'll have access to your Test-API Keys and Live-API
+                                        keys, as well as a suite of order tracking tools.
+                                        <strong><a href="/register/client" class="color-theme1">CLICK HERE</a></strong>
+                                        to create your Route account now.
+        </div>
+    </div>
+    <div>
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-xs-12 visible-xs" style="color: #2b87ff;">
+            <i class="fa fa-lg fa-plus-square-o" aria-hidden="true"></i><strong> Step 2:</strong>
+        </div><!--
+    --><div class="col-sm-2 hidden-xs text-center vcenter" style="color: #2b87ff;">
+        <i class="fa fa-5x fa-plus-square" aria-hidden="true"></i>
+        <br>
+        <strong>Step 2</strong>
+        </div><!--
+    --><div class="col-xs-12 col-sm-10 vcenter">
+        <strong>Use Plugin: </strong>Route is already integrated with several ecommerce platforms and we are always
+                                            adding new integrations. In many cases, adding Route to your checkout is as
+                                            easy as selecting the route app/plugin from your ecommerce provider's app
+                                            store and dropping in the Live-API key. For other ecommerce platforms there
+                                            may be a few extra steps. Detailed documentation for adding Route to your ecommerce
+                                            platform can be
+                                            <strong><a href="https://api.routeit.cloud" class="color-theme2">FOUND HERE</a></strong>.
+        <br>
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or</strong>
+        <br>
+        <strong>Add Code: </strong>The Route Open-API can be used with any ecommerce platform. With as little as two API
+                                            calls, any order can be insured. Our APIs are based on industry standard
+                                            REST with JSON and utilize best-in-class duel key security and encryption.
+                                            Detailed documentation about Route's Open API can be
+                                            <strong><a href="https://api.routeit.cloud" class="color-theme2">FOUND HERE</a></strong>.
+        </div>
+    </div>
+    <div>
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-xs-12 visible-xs" style="color: #13b675;">
+            <i class="fa fa-lg fa-money" aria-hidden="true"></i><strong> Step 3:</strong>
+        </div><!--
+    --><div class="col-sm-2 hidden-xs text-center vcenter" style="color: #13b675;">
+        <i class="fa fa-5x fa-money" aria-hidden="true"></i>
+        <br>
+        <strong>Step 3</strong>
+        </div><!--
+    --><div class="col-xs-12 col-sm-10 vcenter">
+        <strong>Create Confidence and Earn Revenue: </strong>Route increases your website conversion by 5-10% as well as
+                                        an overall increase in cart value by adding consumer confidence. Even if your a
+                                        house hold brand name, there are things out your control during shipping and
+                                        delivery that prevent consumers from buying online. Route helps push the buying
+                                        decision along by adding an additional level of comfort at just the right time
+                                        in the buyer process.
+                                        <br><br>
+                                        Route is free to merchants and can be used to create an entirely new revenue
+                                        stream. By adding the Route widget to your checkout page,
+                                        your company can earn money on every transaction which translates
+                                        to your bottom line.
+        </div>
+    </div>
+    <div>
+        &nbsp;
+    </div>
+</div> <!-- /container -->
+<div class="navbar-xs navbar-inverse navbar-fixed-bottom">
+    <div class="text-center" style="color: grey;">Route is backed by Lloyd’s of London | DOI # 566255</div>
+</div>
+</body>
+</html>
